@@ -8,4 +8,11 @@ public class DieTest {
         int i = 0;
         assertEquals(0,i);
     }
+
+    @Test
+    public void DieSecondTest(){
+        int i = 1;
+        assertEquals(1,i);
+    }
+
 }
