@@ -10,7 +10,6 @@ buildNumber.properties
 .mvn/timing.properties
 GEN_Lab03_Catel_Mirko_Muller.iml
 pom.xml
-.travis.yml
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
