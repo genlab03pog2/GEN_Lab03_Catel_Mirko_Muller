@@ -9,7 +9,7 @@ public class MonopolyGame {
 
     public MonopolyGame(int nbPlayers, int roundCnt) {
         die = new Die();
-        board = new Board(40);
+        board = new Board();
         this.roundCnt = roundCnt;
         for(int i = 0; i < nbPlayers; i++) {
             players.add(new Player("Player" + i));

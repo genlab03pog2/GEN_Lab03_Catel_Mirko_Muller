@@ -1,18 +1,24 @@
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SquareTest {
     @Test
     public void squareIsCreatedWithTheGoodName() {
-        Board board = new Board(40);
-        for(int i = 0; i < 40; i++) {
-            assertEquals("" + i, board.getSquares().get(i).getName());
+        ArrayList<Square> squares = new ArrayList<Square>();
+        for(int i = 0; i < 10; i++) {
+            squares.add(new Square());
+        }
+        for(int i = 0; i < 10; i++) {
+            assertEquals("" + i, squares.get(i).getName());
         }
     }
 
     @Test
     public void allTheSquaresAreCreated() {
-        Board board = new Board(28);
-        assertEquals(28, board.getSquares().size());
+        Board board = new Board();
+        assertEquals(40, board.getSquares().size());
     }
 }

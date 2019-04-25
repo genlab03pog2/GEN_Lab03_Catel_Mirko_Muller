@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Board {
     ArrayList<Square> squares;
 
-    public Board(int nbSquares) {
+    public Board() {
         squares = new ArrayList<Square>();
-        for(int i = 0; i < nbSquares; i++) {
+        for(int i = 0; i < 40; i++) {
             squares.add(new Square());
         }
     }
