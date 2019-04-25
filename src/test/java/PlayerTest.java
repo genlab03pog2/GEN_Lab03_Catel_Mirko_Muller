@@ -3,8 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
     @Test
-    public void newPlayerIsCreated() {
-        Player player = new Player("Player1");
-        assertEquals(player.getName(), "Player1");
+    public void newPlayerHasName() {
+        Player player = new Player();
+        assertEquals(player.getName(), "Player0");
     }
 }
