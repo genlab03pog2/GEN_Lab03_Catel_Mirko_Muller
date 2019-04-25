@@ -6,6 +6,10 @@ public class Player {
         this.name = name;
     }
 
+    public void taketurn() {
+
+    }
+
     public String getName() {
         return name;
     }

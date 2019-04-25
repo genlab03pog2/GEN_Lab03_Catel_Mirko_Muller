@@ -1,11 +1,20 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MonopolyGame {
     private Die die;
     private Board board;
     private ArrayList<Player> players;
+    private int roundCnt;
 
-    // a voir si on fait un constructeur pour init le jeu
+    public MonopolyGame(int nbPlayers, int roundCnt) {
+        die = new Die();
+        board = new Board(40);
+        this.roundCnt = roundCnt;
+        for(int i = 0; i < nbPlayers; i++) {
+            players.add(new Player("Player" + i));
+        }
+    }
 
     public void setDie(Die die) {
         this.die = die;
@@ -19,20 +28,24 @@ public class MonopolyGame {
         players.add(player);
     }
 
-    public void playGame(){
+    public void playGame() {
+        if(die == null || board == null || players.size() < 2) {
+            System.out.println("The game can't begin, bad setup");
+            return;
+        }
 
+        for(int i = 0; i < roundCnt; i++) {
+            playRound();
+        }
+    }
+
+    private void playRound() {
+        for(int i = 0; i < players.size(); i++) {
+            players.get(i).taketurn();
+        }
     }
 
     public static void main(String args[]){
-        MonopolyGame game = new MonopolyGame();
-        game.setBoard(new Board());
-        game.setDie(new Die());
-
-        int nbPlayers = 4;
-        for(int i = 0; i < nbPlayers; i++) {
-            game.addPlayer(new Player("Player" + i));
-        }
-
-        int turns = 20;
+        MonopolyGame game = new MonopolyGame(5, 20);
     }
 }
