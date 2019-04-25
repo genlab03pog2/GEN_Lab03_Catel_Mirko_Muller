@@ -8,4 +8,8 @@ public class Square {
     public String getName() {
         return name;
     }
+
+    public static void resetSquares() {
+        id = 0; 
+    }
 }
