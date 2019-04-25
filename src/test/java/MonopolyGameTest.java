@@ -15,6 +15,4 @@ public class MonopolyGameTest {
         MonopolyGame game = new MonopolyGame(4, 20);
         assertEquals(2, game.getPlayers().get(0).getDice().size());
     }
-
-
 }
