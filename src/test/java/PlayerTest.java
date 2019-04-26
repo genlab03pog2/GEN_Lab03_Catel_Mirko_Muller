@@ -7,4 +7,10 @@ public class PlayerTest {
         Player player = new Player("Player" + 0);
         assertEquals(player.getName(), "Player0");
     }
+
+    @Test
+    public void aPlayerMovesAtTheRightLocation() {
+        Player player = new Player("Player1");
+        player.setBoard(new Board());
+    }
 }

@@ -21,7 +21,6 @@ public class Player {
             die.roll();
             fvTot += die.getFaceValue();
         }
-
         Square oldLoc = piece.getLocation();
         Square newLoc = board.getSquare(oldLoc, fvTot);
         piece.setLocation(newLoc);
