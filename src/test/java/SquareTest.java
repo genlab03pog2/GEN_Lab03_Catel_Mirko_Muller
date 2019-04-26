@@ -7,10 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SquareTest {
     @Test
     public void squareIsCreatedWithTheGoodName() {
-        Square.resetSquares();
         ArrayList<Square> squares = new ArrayList<Square>();
         for(int i = 0; i < 10; i++) {
-            squares.add(new Square());
+            squares.add(new Square(""+i));
         }
         for(int i = 0; i < 10; i++) {
             assertEquals("" + i, squares.get(i).getName());

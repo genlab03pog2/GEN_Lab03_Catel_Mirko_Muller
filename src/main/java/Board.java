@@ -4,10 +4,9 @@ public class Board {
     ArrayList<Square> squares;
 
     public Board() {
-        Square.resetSquares();
         squares = new ArrayList<Square>();
         for(int i = 0; i < 40; i++) {
-            squares.add(new Square());
+            squares.add(new Square(""+i));
         }
     }
 
