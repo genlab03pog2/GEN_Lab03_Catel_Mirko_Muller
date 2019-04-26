@@ -58,19 +58,6 @@ public class MonopolyGame {
         return players;
     }
 
-    public void setDie(Die die) {
-        dice.add(die);
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
-    }
-
-    public void addPlayer(Player player) {
-        players.add(player);
-    }
-
-
     public static void main(String args[]){
         MonopolyGame game = new MonopolyGame(3, 20);
         System.out.println("Bonjour");
