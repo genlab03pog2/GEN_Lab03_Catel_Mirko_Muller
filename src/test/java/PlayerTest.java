@@ -4,8 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlayerTest {
     @Test
     public void newPlayerHasName() {
-        Player.resetPlayers();
-        Player player = new Player();
+        Player player = new Player("Player" + 0);
         assertEquals(player.getName(), "Player0");
     }
 }

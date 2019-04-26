@@ -10,7 +10,6 @@ public class MonopolyGame {
     public MonopolyGame(int nbPlayers, int roundCnt) {
         board = new Board();
         this.roundCnt = roundCnt;
-        Player.resetPlayers();
         players = new ArrayList<Player>();
         dice = new ArrayList<Die>();
 
@@ -21,7 +20,7 @@ public class MonopolyGame {
 
         // Ajout des joueurs
         for(int i = 0; i < nbPlayers; i++) {
-            players.add(new Player());
+            players.add(new Player("Player" + i));
             players.get(i).setBoard(board);
             // Ajout des dés du jeu aux joueurs
             for(int j = 0; j < dice.size(); j++){
