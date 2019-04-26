@@ -16,15 +16,19 @@ public class Player {
     }
 
     public void taketurn() {
+        int fvTot = 0;
+        for(Die die : dice) {
+            die.roll();
+            fvTot += die.getFaceValue();
+        }
 
+        Square oldLoc = piece.getLocation();
+        Square newLoc = board.getSquare(oldLoc, fvTot);
+        piece.setLocation(newLoc);
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setDie(Die die) {
@@ -35,12 +39,12 @@ public class Player {
         this.board = board;
     }
 
-    public ArrayList<Die> getDice() {
-        return dice;
-    }
-
     public Board getBoard() {
         return board;
+    }
+
+    public ArrayList<Die> getDice() {
+        return dice;
     }
 
     public Piece getPiece() {
