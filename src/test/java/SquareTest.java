@@ -9,10 +9,10 @@ public class SquareTest {
     public void squareIsCreatedWithTheGoodName() {
         ArrayList<Square> squares = new ArrayList<Square>();
         for(int i = 0; i < 10; i++) {
-            squares.add(new Square(""+i));
+            squares.add(new Square(i));
         }
         for(int i = 0; i < 10; i++) {
-            assertEquals("" + i, squares.get(i).getName());
+            assertEquals("Square" + i, squares.get(i).getName());
         }
     }
 

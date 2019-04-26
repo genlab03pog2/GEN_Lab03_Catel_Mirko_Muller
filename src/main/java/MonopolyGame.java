@@ -15,7 +15,7 @@ public class MonopolyGame {
 
         // Ajout du nombre de dés souhaités à la partie
         for(int i = 0; i < 2; i++){
-            dice.add(new Die());
+            dice.add(new Die(6));
         }
 
         // Ajout des joueurs
@@ -27,6 +27,35 @@ public class MonopolyGame {
                 players.get(i).setDie(dice.get(j));
             }
         }
+    }
+
+    public void playGame() {
+        if(players.size() < 2) {
+            System.out.println("The game can't begin, bad setup");
+            return;
+        }
+
+        // Met toutes les pièces sur la case de départ
+        for(Player player : players){
+            player.getPiece().setLocation(board.getSquares().get(0));
+        }
+
+        for(int i = 0; i < roundCnt; i++) {
+            System.out.println("Round " + (i+1) + " : ");
+            playRound();
+        }
+    }
+
+    private void playRound() {
+        for(Player player : players) {
+            player.taketurn();
+            System.out.println(player.getName() + ", " +  player.getPiece().getLocation().getName());
+        }
+        System.out.println();
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void setDie(Die die) {
@@ -41,28 +70,10 @@ public class MonopolyGame {
         players.add(player);
     }
 
-    public void playGame() {
-        if(players.size() < 2) {
-            System.out.println("The game can't begin, bad setup");
-            return;
-        }
-
-        for(int i = 0; i < roundCnt; i++) {
-            playRound();
-        }
-    }
-
-    private void playRound() {
-        for(int i = 0; i < players.size(); i++) {
-            players.get(i).taketurn();
-        }
-    }
 
     public static void main(String args[]){
-        MonopolyGame game = new MonopolyGame(5, 20);
-    }
-
-    public ArrayList<Player> getPlayers() {
-        return players;
+        MonopolyGame game = new MonopolyGame(3, 20);
+        System.out.println("Bonjour");
+        game.playGame();
     }
 }

@@ -11,8 +11,15 @@ public class MonopolyGameTest {
         assertNotNull(game.getPlayers().get(0).getPiece());
     }
 
+    @Test
     public void aPlayerHasTwoDice() {
         MonopolyGame game = new MonopolyGame(4, 20);
         assertEquals(2, game.getPlayers().get(0).getDice().size());
+    }
+
+    @Test
+    public void gamePlayed() {
+        MonopolyGame game = new MonopolyGame(4, 20);
+        game.playGame();
     }
 }
