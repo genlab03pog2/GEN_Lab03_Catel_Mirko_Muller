@@ -5,9 +5,13 @@ public class Board {
 
     public Board() {
         squares = new ArrayList<Square>();
-        for(int i = 0; i < 40; i++) {
-            squares.add(new Square(i));
+        squares.add(new GoSquare(1));
+        for(int i = 0; i < 37; i++) {
+            squares.add(new RegularSquare(i+1));
         }
+        squares.add(new GoToJailSquare(39));
+        squares.add(new IncomeTaxSquare(40));
+
     }
 
     public ArrayList<Square> getSquares() {
