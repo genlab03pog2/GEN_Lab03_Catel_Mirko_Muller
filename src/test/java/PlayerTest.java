@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.awt.event.HierarchyBoundsAdapter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
@@ -9,6 +11,15 @@ public class PlayerTest {
     public void newPlayerHasName() {
         Player player = new Player("Player");
         assertEquals(player.getName(), "Player");
+    }
+
+    @Test
+    public void playerHasTheGoodBoard(){
+        Player player = new Player("Player");
+        Board  board = new Board();
+        player.setBoard(board);
+
+        assertEquals(board, player.getBoard());
     }
 
     @Test
@@ -25,6 +36,22 @@ public class PlayerTest {
         assertEquals(35, player.getPiece().getLocation().getId());
     }
 
+    @Test
+    public void canAddCashToPlayer(){
+        Player player = new Player("Player");
+        player.addCash(500);
+
+        assertEquals(2000, player.getNetWorth());
+    }
+
+    @Test
+    public void canReduceCashToPlayer(){
+        Player player = new Player("Player");
+        player.reduceCash(500);
+
+        assertEquals(1000, player.getNetWorth());
+    }
+
     // Mock die to test takeTurn
     static class MockDie extends Die{
 
@@ -34,7 +61,7 @@ public class PlayerTest {
 
         @Override
         public void roll() {
-            System.out.println("MOCKING DIE !!!");
+            System.out.println("MOCKING DIE !!! That's not good, cheater.");
         }
 
         void setValue(int val){
