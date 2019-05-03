@@ -9,8 +9,8 @@ public class Board {
         for(int i = 0; i < 37; i++) {
             squares.add(new RegularSquare(i+1));
         }
-        squares.add(new GoToJailSquare(39));
-        squares.add(new IncomeTaxSquare(40));
+        squares.add(new GoToJailSquare(38));
+        squares.add(new IncomeTaxSquare(39));
 
     }
 
