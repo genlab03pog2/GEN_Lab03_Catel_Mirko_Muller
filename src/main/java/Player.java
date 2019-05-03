@@ -1,5 +1,3 @@
-import com.sun.corba.se.spi.copyobject.ObjectCopier;
-
 import java.util.ArrayList;
 
 public class Player {
@@ -8,9 +6,11 @@ public class Player {
     private ArrayList<Die> dice;
     Board board;
     Piece piece;
+    private int cash;
 
     public Player(String name) {
         this.name = name;
+        this.cash = 1500;
         this.piece = new Piece();
         dice = new ArrayList<Die>();
     }
@@ -24,6 +24,7 @@ public class Player {
         Square oldLoc = piece.getLocation();
         Square newLoc = board.getSquare(oldLoc, fvTot);
         piece.setLocation(newLoc);
+        piece.getLocation().landedOn(this);
     }
 
     public String getName() {
@@ -48,5 +49,17 @@ public class Player {
 
     public Piece getPiece() {
         return piece;
+    }
+
+    public void addCash(int add){
+        cash += add;
+    }
+
+    public void reduceCash(int reduce){
+        cash -= reduce;
+    }
+
+    public int getCash() {
+        return cash;
     }
 }
