@@ -5,7 +5,7 @@ public class Board {
 
     public Board() {
         squares = new ArrayList<Square>();
-        squares.add(new GoSquare(1));
+        squares.add(new GoSquare(0));
         for(int i = 0; i < 37; i++) {
             squares.add(new RegularSquare(i+1));
         }
