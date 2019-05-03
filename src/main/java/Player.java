@@ -59,7 +59,7 @@ public class Player {
         cash -= reduce;
     }
 
-    public int getCash() {
+    public int getNetWorth() {
         return cash;
     }
 }
