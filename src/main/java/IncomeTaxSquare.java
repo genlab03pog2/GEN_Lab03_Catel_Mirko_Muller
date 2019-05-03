@@ -1,3 +1,5 @@
+import static java.lang.Math.min;
+
 public class IncomeTaxSquare extends Square {
     public IncomeTaxSquare(int id) {
         super(id);
@@ -5,16 +7,6 @@ public class IncomeTaxSquare extends Square {
     }
 
     public void landedOn(Player p) {
-        if(getNetWorth(p.getCash()))
-            p.reduceCash(p.getCash()/10);
-        else
-            p.reduceCash(200);
-    }
-
-    private boolean getNetWorth(int cash){
-        if(cash < 1000)
-            return false;
-        else
-            return true;
+        p.reduceCash(min(200,p.getNetWorth() / 10));
     }
 }
