@@ -9,7 +9,7 @@ public class BoardTest {
         assertEquals(40, board.getSquares().size());
         assertEquals("GoSquare", board.getSquares().get(0).getClass().getName());
         assertEquals("GoToJailSquare", board.getSquares().get(38).getClass().getName());
-        assertEquals("IncomeTaxSquareTest", board.getSquares().get(39).getClass().getName());
+        assertEquals("IncomeTaxSquare", board.getSquares().get(39).getClass().getName());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class BoardTest {
         square = board.getSquare(board.getSquares().get(37),1);
         assertEquals("GoToJailSquare", square.getClass().getName());
         square = board.getSquare(board.getSquares().get(38),1);
-        assertEquals("IncomeTaxSquareTest", square.getClass().getName());
+        assertEquals("IncomeTaxSquare", square.getClass().getName());
         square = board.getSquare(board.getSquares().get(39),1);
         assertEquals("GoSquare", square.getClass().getName());
     }
