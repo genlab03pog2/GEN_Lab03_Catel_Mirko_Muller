@@ -19,7 +19,16 @@ public class MonopolyGameTest {
 
     @Test
     public void gamePlayed() {
-        MonopolyGame game = new MonopolyGame(4, 20);
+        MonopolyGame game = new MonopolyGame(8, 20);
         game.playGame();
+    }
+
+    @Test
+    public void canNotStartGameWithOnePlayer(){
+        MonopolyGame game = new MonopolyGame(1, 20);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,() -> game.playGame(),"The game can't begin, not enough players");
+
+        assertTrue(exception.getMessage().contains("The game can't begin, not enough players"));
+
     }
 }
