@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class MonopolyGame {
     private Board board;
     private ArrayList<Player> players;
@@ -28,22 +29,21 @@ public class MonopolyGame {
         }
     }
 
-    public void playGame() {
+    public void playGame() throws IllegalArgumentException {
         if(players.size() < 2) {
-            System.out.println("The game can't begin, bad setup");
-            return;
-        }
+            throw new IllegalArgumentException("The game can't begin, not enough players");
+    }
 
-        // Met toutes les pièces sur la case de départ
+    // Met toutes les pièces sur la case de départ
         for(Player player : players){
-            player.getPiece().setLocation(board.getSquares().get(0));
-        }
+        player.getPiece().setLocation(board.getSquares().get(0));
+    }
 
         for(int i = 0; i < roundCnt; i++) {
-            System.out.println("Round " + (i+1) + " : ");
-            playRound();
-        }
+        System.out.println("Round " + (i+1) + " : ");
+        playRound();
     }
+}
 
     private void playRound() {
         for(Player player : players) {
@@ -58,8 +58,13 @@ public class MonopolyGame {
     }
 
     public static void main(String args[]){
-        MonopolyGame game = new MonopolyGame(3, 20);
-        System.out.println("Bonjour");
-        game.playGame();
+        try {
+            MonopolyGame game = new MonopolyGame(1, 20);
+            System.out.println("Hello");
+            game.playGame();
+        }
+        catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
