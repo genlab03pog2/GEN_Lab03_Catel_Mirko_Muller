@@ -2,9 +2,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SquareTest {
+public class RegularSquareTest {
     @Test
     public void squareIsCreatedWithTheGoodName() {
         ArrayList<Square> squares = new ArrayList<Square>();
